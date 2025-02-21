@@ -5,27 +5,24 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
+import com.google.android.material.navigation.NavigationView
 import scisrc.mobiledev.ecommercelayout.databinding.ActivityMainBinding
-import scisrc.mobiledev.ecommercelayout.ui.HomeFragment
+import scisrc.mobiledev.ecommercelayout.ui.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Setup toolbar
+        // ตั้งค่า Toolbar
         setSupportActionBar(binding.toolbar)
 
-        // Initialize navigation
+        // ตั้งค่า Navigation Drawer
         drawerLayout = binding.drawerLayout
-
-        // Add hamburger icon
         val toggle = ActionBarDrawerToggle(
             this,
             drawerLayout,
@@ -36,30 +33,30 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        // Handle NavigationView item clicks
+        // จัดการคลิกเมนูใน Navigation Drawer
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_home -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, HomeFragment())
-                        .commit()
-                }
-
+                R.id.home -> replaceFragment(HomeFragment())
+                R.id.Store -> replaceFragment(ProductListFragment())
+                R.id.shopping -> replaceFragment(CartFragment())
+                R.id.profile -> replaceFragment(ProfileFragment())
+                R.id.favorite -> replaceFragment(FavoritesFragment())
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
 
-        // Load default fragment
+        // โหลดหน้า Home เป็นค่าเริ่มต้น
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment())
-                .commit()
+            replaceFragment(HomeFragment())
             binding.navView.setCheckedItem(R.id.nav_home)
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+    // ฟังก์ชันเปลี่ยน Fragment
+    private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }
