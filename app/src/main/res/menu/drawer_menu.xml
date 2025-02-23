@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/home"
-            android:icon="@drawable/home"
-            android:title="Home" />
-
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="หน้าเเรก" />
         <item
-            android:id="@+id/Store"
-            android:icon="@drawable/store"
-            android:title="Store" />
-
+            android:id="@+id/nav_products"
+            android:icon="@drawable/products"
+            android:title="รายการเมนู" />
         <item
-            android:id="@+id/shopping"
-            android:icon="@drawable/shopping"
-            android:title="Cart" />
-
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/cart"
+            android:title="ตะกร้าเมนู" />
         <item
-            android:id="@+id/profile"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/profile"
-            android:title="Profile" />
-
+            android:title="โปรไฟล์" />
         <item
-            android:id="@+id/favorite"
-            android:icon="@drawable/favorite"
-            android:title="Favorite" />
+            android:id="@+id/nav_favorites"
+            android:icon="@drawable/favorites"
+            android:title="รายการโปรด" />
+    </group>
 </menu>

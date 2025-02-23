@@ -1,38 +1,131 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".ProfileFragment">
 
     <!-- รูปโปรไฟล์ -->
+
+    <!-- หัวข้อ "ชื่อ" -->
+
+    <!-- ช่องกรอกชื่อ -->
+
+    <!-- หัวข้อ "อีเมล" -->
     <ImageView
         android:id="@+id/profileImage"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/ic_profile"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/circle_background"
+        android:contentDescription="Profile Image"
         android:scaleType="centerCrop"
-        android:layout_marginBottom="16dp"/>
+        android:src="@drawable/owner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ข้อมูลผู้ใช้ -->
+    <EditText
+        android:id="@+id/profileName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_border"
+        android:enabled="false"
+        android:padding="12dp"
+        android:text="๋Thanapat Sirisuppinyo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelName" />
+
+    <EditText
+        android:id="@+id/profileAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittext_border"
+        android:enabled="false"
+        android:padding="12dp"
+        android:text="24/10 ต.ทุ่งคอก อ.สองพี่น้อง"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelAddress" />
+
+    <EditText
+        android:id="@+id/profileEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_border"
+        android:enabled="false"
+        android:padding="12dp"
+        android:text="thanapat@ku.th"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelEmail" />
+
     <TextView
-        android:id="@+id/userName"
+        android:id="@+id/labelAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ชื่อ: ชื่อผู้ใช้"
-        android:textSize="18sp"/>
+        android:layout_marginTop="12dp"
+        android:text="ที่อยู่"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileEmail" />
 
-    <TextView
-        android:id="@+id/userEmail"
+    <Button
+        android:id="@+id/btnEditProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="อีเมล: user@example.com"
-        android:textSize="16sp"/>
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#F44336"
+        android:padding="12dp"
+        android:text="แก้ไขโปรไฟล์"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileAddress" />
 
     <TextView
-        android:id="@+id/userAddress"
+        android:id="@+id/labelName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ที่อยู่: -"
-        android:textSize="16sp"/>
-</LinearLayout>
+        android:layout_marginTop="44dp"
+        android:text="ชื่อ"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileImage" />
+
+    <TextView
+        android:id="@+id/labelEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="อีเมล"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileName" />
+
+    <!-- ช่องกรอกอีเมล -->
+
+    <!-- หัวข้อ "ที่อยู่" -->
+
+    <!-- ช่องกรอกที่อยู่ -->
+
+    <!-- ปุ่มแก้ไขโปรไฟล์ -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
